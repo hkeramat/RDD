@@ -60,7 +60,7 @@ pandas
    - **Cell 13–16**: Fine-tune using reward-weighted MLE.
    - **Cell 17–18**: Generate optimized airfoils via SVDD sampling.
 
-3. **Evaluate**: Generated airfoil coordinates can be validated with [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/).
+3. **Evaluate**: Generated airfoil coordinates can be validated with [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/). Note that it needs spline smoothing before running XFOIL. 
 
 ### Key Hyperparameters
 
