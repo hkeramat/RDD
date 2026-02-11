@@ -10,7 +10,7 @@ This repository contains the code for the paper:
 
 ## Overview
 
-We present a generative optimization framework that fine-tunes a Denoising Diffusion Probabilistic Model (DDPM) using reward-directed sampling to generate high-performance engineering designs. The key idea is to reformulate the reverse diffusion process as an entropy-regularized Markov Decision Process and iteratively apply a **soft value function** to guide generation toward high-reward regions — all without requiring gradients of the reward function.
+We present a generative optimization framework that fine-tunes a Denoising Diffusion Probabilistic Model (DDPM) using reward-directed sampling to generate high-performance engineering designs. The key idea is to reformulate the reverse diffusion process as an entropy-regularized Markov Decision Process and iteratively apply a **soft value function** to guide generation toward high-reward regions without requiring gradients of the reward function.
 
 <p align="center">
   <img src="assets/frameworkasset.png" width="85%" alt="Framework overview"/>
@@ -23,7 +23,7 @@ We present a generative optimization framework that fine-tunes a Denoising Diffu
 - **Beyond-distribution generation**: Produces designs that exceed the performance of the training data, over **10% improvement in lift-to-drag ratio** for airfoil design and more than **25% reduction in resistance** for ship hull design.
 - **Parametric design representation**: Operates on vectorized design parameters, making it compatible with standard engineering parameterizations.
 
-## Released Code — Aerodynamic (Airfoil) Design
+## Released Code: Aerodynamic (Airfoil) Design
 
 > **Note:** The marine (ship hull) design component was developed in collaboration with our industry sponsors whith whom we have ongoing work, and is **not included** in this public release. Only the **2D airfoil aerodynamic design** pipeline is provided.
 
@@ -79,8 +79,8 @@ The framework proceeds in four steps:
 
 1. **Parameterize** the design geometry as a vector of features.
 2. **Pre-train** a DDPM to learn the data distribution over designs.
-3. **Fine-tune** via reward-weighted MLE — samples are weighted by `exp(r(x₀)/α)` so high-reward designs contribute more to the loss (Eq. 34 in the paper).
-4. **Sample** from the fine-tuned model using soft value-based importance sampling — at each reverse step, M candidates are drawn and one is selected proportionally to its estimated reward (Algorithm 2).
+3. **Fine-tune** via reward-weighted MLE: samples are weighted by `exp(r(x₀)/α)` so high-reward designs contribute more to the loss (Eq. 34 in the paper).
+4. **Sample** from the fine-tuned model using soft value-based importance sampling: at each reverse step, M candidates are drawn and one is selected proportionally to its estimated reward (Algorithm 2).
 
 The soft value function at each intermediate timestep is approximated via the posterior mean estimator:
 
@@ -122,5 +122,5 @@ This work is supported by NSERC Alliance Grant with Elomatic and InnovMarine, an
 
 ## Contact
 
-Hadi Keramati — [hadi.keramati@ubc.ca](mailto:hadi.keramati@ubc.ca)
+Hadi Keramati, [hadi.keramati@ubc.ca](mailto:hadi.keramati@ubc.ca)
 Department of Mechanical Engineering, University of British Columbia, Vancouver, BC, Canada
